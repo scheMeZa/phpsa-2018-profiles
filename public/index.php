@@ -167,7 +167,7 @@ $kernel = new mostertb\PHPSA2018Profiles\Kernel();
                 <div class="list-group">
                     <?php
                     foreach ($kernel->getProfiles() as $index => $profile) {
-                        echo '<a href="#' . $profile->getSlug() . '" class="list-group-item">' . $profile->getName() . '</a>' . PHP_EOL;
+                        echo '<a href="#' . $profile->getSlug() . '" class="list-group-item">' . htmlspecialchars($profile->getName()) . '</a>' . PHP_EOL;
                     }
                     ?>
                 </div>
@@ -198,8 +198,8 @@ $kernel = new mostertb\PHPSA2018Profiles\Kernel();
                                     ?>
                                 <p>
                                     <strong>GitHub Homepage:</strong>
-                                    <a href="https://github.com/<?php echo $profile->getGitHubUsername() ?>" target="_blank">
-                                        <?php echo $profile->getGitHubUsername() ?>
+                                    <a href="https://github.com/<?php echo htmlspecialchars($profile->getGitHubUsername()) ?>" target="_blank">
+                                        <?php echo htmlspecialchars($profile->getGitHubUsername()) ?>
                                     </a>
                                 </p>
                                 <?php
@@ -209,7 +209,7 @@ $kernel = new mostertb\PHPSA2018Profiles\Kernel();
                                     echo "<h5>Projects</h5>";
                                     echo "<ul>";
                                     foreach ($profile->getMaintainedProjects() as $name => $url) {
-                                        echo '<li><a href="' . $url . '" target="_blank">' . $name . '</a></li>';
+                                        echo '<li><a href="' . htmlspecialchars($url) . '" target="_blank">' . htmlspecialchars($name) . '</a></li>';
                                     }
                                     echo "</ul>";
                                     echo "<br>";
@@ -219,7 +219,7 @@ $kernel = new mostertb\PHPSA2018Profiles\Kernel();
                                     echo "<h5>Involved In</h5>";
                                     echo "<ul>";
                                     foreach ($profile->getInvolvedProjects() as $name => $url) {
-                                        echo '<li><a href="' . $url . '" target="_blank">' . $name . '</a></li>';
+                                        echo '<li><a href="' . htmlspecialchars($url) . '" target="_blank">' . htmlspecialchars($name) . '</a></li>';
                                     }
                                     echo "</ul>";
                                     echo "<br>";
